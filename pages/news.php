@@ -1,4 +1,5 @@
-<?php include 'header.php' ?>
+<?php include 'header.php';
+?>
 
   <!-- Title Category -->
   <div class="title-category">
