@@ -19,27 +19,24 @@
                             </div><!-- /.box-header -->
                             <div class="box-body no-padding">
                                 <ul class="users-list clearfix">
+                                    <?php
+                                    $users_query=mysqli_query($connect,"SELECT id,fullname FROM t_user");
+                                    $users=mysqli_fetch_all($users_query,MYSQLI_ASSOC);
+                                    foreach ($users as $item){
+                                    ?>
+
                                     <li>
-                                        <img src="Images/user1-128x128.jpg" alt="User Image">
-                                        <a class="users-list-name" href="#">حسین حیاتی</a>
+                                        <img src="Images/user<?php echo $item['id'];  ?>-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">
+
+<?php echo $item['fullname']; ?>
+
+
+
+                                        </a>
                                         <span class="users-list-date">امروز</span>
                                     </li>
-                                    <li>
-                                        <img src="Images/user8-128x128.jpg" alt="User Image">
-                                        <a class="users-list-name" href="#">گلشن بهادری</a>
-                                        <span class="users-list-date">دیروز</span>
-                                    </li>
-                                    <li>
-                                        <img src="Images/user7-128x128.jpg" alt="User Image">
-                                        <a class="users-list-name" href="#">محسن بحرزاده</a>
-                                        <span class="users-list-date">22 مرداد</span>
-                                    </li>
-                                    <li>
-                                        <img src="Images/user6-128x128.jpg" alt="User Image">
-                                        <a class="users-list-name" href="#">احمدرضا اصلاحی</a>
-                                        <span class="users-list-date">2 شهریور</span>
-                                    </li>
-
+<?php } ?>
                                 </ul><!-- /.users-list -->
                             </div><!-- /.box-body -->
                             <div class="box-footer text-center">
