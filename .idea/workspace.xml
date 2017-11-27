@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b97c9786-f713-4c36-ae4a-1bc208ed2132" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/header.php" afterPath="$PROJECT_DIR$/pages/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/news.php" afterPath="$PROJECT_DIR$/pages/news.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/header.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
@@ -40,15 +39,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="news.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="news.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/news.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="22" />
+            <state relative-caret-position="279">
+              <caret line="100" column="49" lean-forward="false" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
               <folding>
-                <marker date="1511719610514" expanded="true" signature="394:456" ph="SELECT id,ti... t_category" />
-                <marker date="1511719610514" expanded="true" signature="1279:1340" ph="SELECT id,ti... t_category" />
-                <marker date="1511719610514" expanded="true" signature="1796:1874" ph="SELECT summa... t_news" />
+                <marker date="1511771087891" expanded="true" signature="391:453" ph="SELECT id,ti... t_category" />
+                <marker date="1511771087891" expanded="true" signature="1276:1337" ph="SELECT id,ti... t_category" />
+                <marker date="1511771087891" expanded="true" signature="1793:1883" ph="SELECT summa... t_news" />
+                <marker date="1511771087891" expanded="true" signature="1976:2013" ph="SELECT * FRO... t_news" />
               </folding>
             </state>
           </provider>
@@ -180,11 +180,11 @@
         <option value="$PROJECT_DIR$/Admin/Dashboard/Products.php" />
         <option value="$PROJECT_DIR$/Admin/Dashboard/Sales.php" />
         <option value="$PROJECT_DIR$/Admin/Dashboard/Support.php" />
-        <option value="$PROJECT_DIR$/pages/news.php" />
         <option value="$PROJECT_DIR$/Admin/Dashboard/Articles.php" />
         <option value="$PROJECT_DIR$/Admin/Dashboard/User.php" />
         <option value="$PROJECT_DIR$/Admin/Dashboard/header.php" />
         <option value="$PROJECT_DIR$/pages/header.php" />
+        <option value="$PROJECT_DIR$/pages/news.php" />
       </list>
     </option>
   </component>
@@ -292,12 +292,12 @@
       <workItem from="1511005024996" duration="4715000" />
       <workItem from="1511610218415" duration="4605000" />
       <workItem from="1511696748136" duration="4761000" />
-      <workItem from="1511767028603" duration="1450000" />
+      <workItem from="1511767028603" duration="4534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23947000" />
+    <option name="totallyTimeSpent" value="27031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -577,6 +577,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -676,18 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="22" />
-          <folding>
-            <marker date="1511719610514" expanded="true" signature="394:456" ph="SELECT id,ti... t_category" />
-            <marker date="1511719610514" expanded="true" signature="1279:1340" ph="SELECT id,ti... t_category" />
-            <marker date="1511719610514" expanded="true" signature="1796:1874" ph="SELECT summa... t_news" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -702,6 +691,19 @@
             <marker date="1511768498952" expanded="true" signature="1615:2138" ph="..." />
             <marker date="1511768498952" expanded="true" signature="1636:1669" ph="..." />
             <marker date="1511768498952" expanded="true" signature="1636:2119" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="100" column="49" lean-forward="false" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
+          <folding>
+            <marker date="1511771087891" expanded="true" signature="391:453" ph="SELECT id,ti... t_category" />
+            <marker date="1511771087891" expanded="true" signature="1276:1337" ph="SELECT id,ti... t_category" />
+            <marker date="1511771087891" expanded="true" signature="1793:1883" ph="SELECT summa... t_news" />
+            <marker date="1511771087891" expanded="true" signature="1976:2013" ph="SELECT * FRO... t_news" />
           </folding>
         </state>
       </provider>
