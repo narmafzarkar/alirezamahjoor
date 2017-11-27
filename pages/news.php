@@ -85,7 +85,7 @@ foreach($news as $news_item){
       </svg>
       </span>
           <span>تعداد بازدید : </span>
-          <span><?php ?></span>
+          <span></span>
     </div>
     <div class="date">
       <span>
@@ -98,7 +98,7 @@ foreach($news as $news_item){
       <span>1395/6/28</span>
     </div>
     <div class="more-btn">
-      <a href="tip-singel.php?visit=<?php echo 1;?>">ادامه مطلب</a>
+      <a href="tip-singel.php">ادامه مطلب</a>
     </div>
   </div>
   </div>
