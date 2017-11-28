@@ -48,7 +48,7 @@ session_start();
 
 echo "<ul><li>کاربر $user  خوش آمدید.
 
-<a href='index.php'>خروج</a>
+<a href='index.php?session_id=2'>خروج</a>
 </li></ul>";
 
 }
@@ -60,6 +60,13 @@ else
                 <a href="">/</a>
                 <a href="register.php">ثبت نام</a>
  <?php } ?>
+<?php
+if (isset($_GET['session_id'])) {
+    session_destroy();
+        header("location;index.php");
+}
+
+?>
             </div>
 
             <div class="menu-nav">

@@ -4,7 +4,7 @@
   <!-- Title Category -->
   <div class="title-category">
   <span>دسته : </span>
-  <span class="categoryname">تقویم رو میزی</span>
+  <span class="categoryname">لیست اخبار</span>
   </div>
   <div class="Line first"></div>
 
@@ -52,8 +52,13 @@
 <?php
 if (isset($_GET['cat_id']))
 {$cat_id=$_GET['cat_id'];
-  $news_query=mysqli_query($connect,"SELECT summary,id,title,text 
-              FROM t_news WHERE id_cat='$cat_id'");
+  $news_query=mysqli_query($connect,"SELECT summary,id,title,text,create_time 
+              FROM t_news WHERE id_cat='$cat_id'");}
+              else
+              {
+                  $news_query=mysqli_query($connect,"SELECT * FROM t_news WHERE `delete`=0");
+
+              }
 $news=mysqli_fetch_all($news_query,MYSQLI_ASSOC);
 foreach($news as $news_item){
 ?>
@@ -67,6 +72,7 @@ foreach($news as $news_item){
   <a href="tip-singel.php"><img src="../asset/img/slide-2.jpg" alt="tip"></a>
   </div>
   <div class="tip-text clearfix">
+      <h3><?php echo $news_item['title'];?></h3>
     <p>
 <?php echo $news_item['summary'];?>
     </p>
@@ -79,7 +85,7 @@ foreach($news as $news_item){
       </svg>
       </span>
           <span>تعداد بازدید : </span>
-          <span>5</span>
+          <span></span>
     </div>
     <div class="date">
       <span>
@@ -102,7 +108,8 @@ foreach($news as $news_item){
       </div>
 
   </div>
-      <?php }}?>
+      <?php }
+      ?>
 </section>
 
 <div class="Line"></div>
