@@ -1,4 +1,4 @@
-﻿<?php include 'header.php'?>
+﻿<?php include 'header.php' ?>
         <div class="content-wrapper">
             <section class="content-header">
                 <h1>
@@ -12,7 +12,8 @@
 
                     <div class="box box-info">
                         <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
-                            <h3 class="box-title">آخرین مطالب</h3>
+                            <br>
+                            <a class="btn btn-info" href="news-page.php"> نوشتن خبر جدید </a>
                             <div class="box-tools pull-right">
                                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                                 <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -61,7 +62,7 @@
                                     </thead>
                                     <tbody>
 <?php
-$news_query=mysqli_query($connect,"SELECT * FROM t_news");
+$news_query=mysqli_query($connect,"SELECT * FROM t_news ORDER BY id DESC ");
 $news=mysqli_fetch_all($news_query,MYSQLI_ASSOC);
 
 foreach ($news as $item){

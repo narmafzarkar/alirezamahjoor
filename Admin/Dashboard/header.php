@@ -20,10 +20,14 @@ include '../../asset/jdf/jdf.php';
 
     <link href="Content/panel.css" rel="stylesheet" />
     <link href="Content/font.css" rel="stylesheet"/>
+
+
     <link href="Content/bootstrap.rtl.min.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js" async ></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" async ></script>
+
+
     <![endif]-->
 </head>
 <body class="hold-transition skin-admin sidebar-mini">
