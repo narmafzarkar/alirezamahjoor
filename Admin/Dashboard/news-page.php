@@ -29,69 +29,45 @@
         <div class="formgroup" id="name-form">
             <label for="category">دسته خبر </label>
             <select   name="category" >
-                <option value="khabari">خبری</option>
-                <option value="iran">---ایران</option>
-                <option value="national">---بین الملل</option>
-                <option value="ejtemaee">اجتماعی</option>
-                <option value="varzeshi">ورزشی</option>
-                <option value="valibal">---والیبال</option>
-                <option value="footbal">---فوتبال</option>
-                <option value="shatranj">---شطرنج</option>
-                <option value="siasi">سیاسی</option>
-                <option value="honari">هنری</option>
-                <option value="eghtesadi">اقتصادی</option>
-                <option value="boors">---بورس ایران</option>
-                <option value="arz">---ارز</option>
+
+                <?php
+                $category_query=mysqli_query($connect,"SELECT id,title FROM t_category");
+                $category=mysqli_fetch_all($category_query,MYSQLI_ASSOC);
+                foreach ($category as $item1){
+                    ?>
+                <option value="<?php $item1['id'] ?>"><?php echo $item1['title'] ?> </option>                <?php } ?>
             </select>
         </div>
+        <label for="category">نویسنده خبر </label>
+
         <div class="formgroup" id="name-form">
-            <label for="category">نویسنده خبر </label>
-            <select   name="category" >
-                <option value="khabari">خبری</option>
+            <select   name="author" >
+                <?php
+                $author_query=mysqli_query($connect,"SELECT fullname,id FROM t_user");
+                $author=mysqli_fetch_all($author_query,MYSQLI_ASSOC);
+                foreach ($author as $item){
+                ?>
+
+                <option value="<?php  $item['id']; ?>"><?php echo $item['fullname'],$item['id']; ?></option>
+                <?php } ?>
             </select>
+
         </div>
 
         <div>
         <input type="submit" name="submit" value="ثبت خبر" />
 </div>
         <?php
+
         $title=@$_POST['title'];
         $summary=@$_POST['summary'];
         $text=@$_POST['text'];
-        $category=@$_POST['category'];
-        switch($category)
-        {
-            case "khabari":
-                $cat_id=1;break;
-            case "ejtemaee":
-                $cat_id=2;break;
-            case "varzeshi":
-                $cat_id=3;break;
-            case "siasi":
-                $cat_id=4;break;
-            case "honari":
-                $cat_id=5;break;
-            case "eghtesadi":
-                $cat_id=6;break;
-            case "valibal":
-                $cat_id=7;break;
-            case "footbal":
-                $cat_id=8;break;
-            case "shatranj":
-                $cat_id=9;break;
-            case "iran":
-                $cat_id=10;break;
-            case "national":
-                $cat_id=11;break;
-            case "boors":
-                $cat_id=12;break;
-            case "arz":
-                $cat_id=13;break;
-        }
+        $cat_id=@$_POST['category'];
+        $user_id=@$_POST['author'];
 
         if(isset($_POST['submit']))
-$insert_query=mysqli_query($connect,"INSERT INTO t_news(title,summary,text,id_cat)
-VALUES('$title','$summary','$text','$cat_id')");
+$insert_query=mysqli_query($connect,"INSERT INTO t_news(title,summary,text,id_cat,user_id)
+VALUES('$title','$summary','$text','$cat_id','$user_id')");
 
 
         ?>
