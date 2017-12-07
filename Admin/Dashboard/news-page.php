@@ -90,13 +90,7 @@
                             $text=@$_POST['text'];
                             $cat_id=@$_POST['category'];
                             $user_id=@$_POST['author'];
-                            echo "<br>";
-                            print_r($_POST['category']);
-                            echo "<br>";
-                            print_r($_POST['author']);
-
-
-                            if(isset($_POST['submit']))
+                             if(isset($_POST['submit']))
                                 $insert_query=mysqli_query($connect,"INSERT INTO t_news(title,summary,text,id_cat,user_id)
 VALUES('$title','$summary','$text','$cat_id','$user_id')");
 
