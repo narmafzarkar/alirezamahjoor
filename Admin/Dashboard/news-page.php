@@ -91,10 +91,10 @@
                             $cat_id=@$_POST['category'];
                             $user_id=@$_POST['author'];
                              if(isset($_POST['submit']))
-                                $insert_query=mysqli_query($connect,"INSERT INTO t_news(title,summary,text,id_cat,user_id)
+                             { $insert_query=mysqli_query($connect,"INSERT INTO t_news(title,summary,text,id_cat,user_id)
 VALUES('$title','$summary','$text','$cat_id','$user_id')");
-
-
+echo "<div align='center'>خبر با موفقیت ثبت شد</div>";
+                             }
                             ?>
                         </form>
                     </div>

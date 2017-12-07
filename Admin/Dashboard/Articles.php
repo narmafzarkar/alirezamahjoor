@@ -115,12 +115,12 @@ echo $cat['title'];
                                             <td class="col-md-1">
 
                                                
-                                                <span class="label label-success">منتشر شده</span>
+                                                <span class="label label-success"><?php echo ($item['delete'])? 'حذف شده': 'حذف نشده' ?></span>
                                                
                                                
                                             </td>
                                             <th>
-                                                <a class="btn btn-info btn-sm glyphicon glyphicon-zoom-in" href="@Url.Action(MVC.Article.ArticleDetail(item.Id,item.NewsTitle))"></a>
+                                                <a class="btn btn-info btn-sm glyphicon glyphicon-zoom-in" href="../../pages/tip-singel.php"></a>
                                             </th>
                                             <th>
                                                 <a class="btn btn-info btn-sm glyphicon glyphicon-edit" href="@Url.Action(MVC.CpAdmin.News.Edit(item.Id))"></a>
