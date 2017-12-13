@@ -123,7 +123,7 @@ echo $cat['title'];
                                                 <a class="btn btn-info btn-sm glyphicon glyphicon-zoom-in" href="../../pages/tip-singel.php"></a>
                                             </th>
                                             <th>
-                                                <a class="btn btn-info btn-sm glyphicon glyphicon-edit" href="@Url.Action(MVC.CpAdmin.News.Edit(item.Id))"></a>
+                                                <a class="btn btn-info btn-sm glyphicon glyphicon-edit" href="news-page.php?id=<?php echo $item['id'] ?>"></a>
                                             </th>
                                             <th>
                                                 <a class="btn btn-danger btn-sm" href="@Url.Action(MVC.CpAdmin.News.Delete(item.Id))">×</a>

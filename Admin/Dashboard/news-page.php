@@ -1,6 +1,6 @@
 <html>
 <!--<link href="Content/form.css" rel="stylesheet"/>-->
-<?php include 'header.php' ?>
+<?php include 'header.php'; ?>
 
 <body>
 <div class="content-wrapper">
@@ -21,9 +21,22 @@
                             <div class="box-body">
                                 <div class="form-horizontal">
                                     <div class="form-group">
+                                    <?php
+                                    if(@$_REQUEST)
+                                    {
+                                        $id=$_REQUEST['id'];
+                                        $query=mysqli_query($connect,"SELECT *.t_user,fullname FROM t_news INNER JOIN t_user ON  where t_news.id='$id'");
+                                        $query_news=mysqli_fetch_assoc($query);
+
+
+
+                                    ?>
+
+
+
                                         <label class="control-label col-md-2" for="Title">عنوان </label>
                                         <div class="col-md-10">
-                                            <input class="form-control text-box single-line" data-val="true" data-val-length="طول عنوان تیکت بایست 550 و حداکثر 550 حرف باشد" data-val-length-max="550" data-val-required="پر کردن فیلد &#39;عنوان تیکت&#39; الزامیست." id="Title" name="title" placeholder="عنوان اصلی" type="text" value="" />
+                                            <input class="form-control text-box single-line" data-val="true" data-val-length="طول عنوان تیکت بایست 550 و حداکثر 550 حرف باشد" data-val-length-max="550" data-val-required="پر کردن فیلد &#39;عنوان تیکت&#39; الزامیست." id="Title" name="title" placeholder="عنوان اصلی" type="text" value="<?php echo $query_news['title'] ?>" />
                                             <span class="field-validation-valid text-danger" data-valmsg-for="Title" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
@@ -31,14 +44,14 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-2" for="Note">خلاصه خبر</label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control text-box multi-line" data-val="true" data-val-length="طول سوال یا مشکل بایست 1550 و حداکثر 1550 حرف باشد" data-val-length-max="1550" data-val-required="پر کردن فیلد &#39;خلاصه خبر&#39; الزامیست." id="Note" name="summary" placeholder="خلاصه خبر را حداکثر در 300 کاراکتر در اینجا بنویسید" rows="2"></textarea>
+                                            <textarea class="form-control text-box multi-line" data-val="true" data-val-length="طول سوال یا مشکل بایست 1550 و حداکثر 1550 حرف باشد" data-val-length-max="1550" data-val-required="پر کردن فیلد &#39;خلاصه خبر&#39; الزامیست." id="Note" name="summary" placeholder="خلاصه خبر را حداکثر در 300 کاراکتر در اینجا بنویسید" rows="2"><?php echo $query_news['summary'] ?></textarea>
                                             <span class="field-validation-valid text-danger" data-valmsg-for="Note" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-2" for="Note">متن کامل خبر</label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control text-box multi-line" data-val="true" data-val-length="طول سوال یا مشکل بایست 1550 و حداکثر 1550 حرف باشد" data-val-length-max="1550" data-val-required="پر کردن فیلد &#39;متن کامل خبر&#39; الزامیست." id="Note" name="text" placeholder="متن کامل خبر را در اینجا قرار دهید بدون محدودیت کاراکتر" rows="15"></textarea>
+                                            <textarea class="form-control text-box multi-line" data-val="true" data-val-length="طول سوال یا مشکل بایست 1550 و حداکثر 1550 حرف باشد" data-val-length-max="1550" data-val-required="پر کردن فیلد &#39;متن کامل خبر&#39; الزامیست." id="Note" name="text" placeholder="متن کامل خبر را در اینجا قرار دهید بدون محدودیت کاراکتر" rows="15"><?php echo $query_news['text'] ?></textarea>
                                             <span class="field-validation-valid text-danger" data-valmsg-for="Note" data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
@@ -51,7 +64,7 @@
                                                 $category=mysqli_fetch_all($category_query,MYSQLI_ASSOC);
                                                 foreach ($category as $item1){
                                                     ?>
-                                                    <option value="<?php echo $item1['id'] ?>"><?php echo $item1['title'] ?> </option>
+                                                    <option value="<?php echo $item1['id'] ?>"><?php echo ($item1['title']) ?> </option>
                                                 <?php } ?>
 
                                             </select>
@@ -62,7 +75,10 @@
                                         <label class="control-label col-md-2" for="Section">نویسنده خبر</label>
                                         <div class="col-md-10">
                                             <select class="form-control" data-val="true" data-val-required="پر کردن فیلد &#39;نویسنده&#39; الزامیست." id="Section" name="author">
+
                                                 <?php
+                                                if(!@$_REQUEST['id'])
+                                                {
                                                 $author_query=mysqli_query($connect,"SELECT t_user.id,fullname FROM t_user");
                                                 $author=mysqli_fetch_all($author_query,MYSQLI_ASSOC);
 
@@ -70,7 +86,10 @@
                                                     ?>
 
                                                     <option value="<?php echo $item['id']; ?>"><?php echo $item['fullname']; ?></option>
+                                                <?php } }else{?>
+                                                <option value="<?php echo $query_news['id']; ?>"><?php echo $query_news['fullname']; ?></option>
                                                 <?php } ?>
+
 
                                             </select>
                                             <span class="field-validation-valid text-danger" data-valmsg-for="Section" data-valmsg-replace="true"></span>
@@ -80,9 +99,17 @@
                             </div>
                             <div class="box-footer clearfix">
                                 <div class="col-md-10 col-md-offset-2">
-                                    <button type="submit" class="btn btn-labeled bg-orange-active" name="submit"> <i class="fa fa-send"></i> ارسال</button>
+                                    <?php if(@$_REQUEST['id'])
+                                    {?>
+                                    <button type="submit" class="btn btn-labeled bg-orange-active" name="edit"> <i class="fa fa-send"></i> ویرایش</button>
+                                    <?php } else{ ?>
+
+                                    <button type="submit" class="btn btn-labeled bg-orange-active" name="submit"> <i class="fa fa-send"></i> ثبت</button>
+                                    <?php } ?>
+
                                 </div>
                             </div>
+                            <?php } ?>
                             <?php
 
                             $title=@$_POST['title'];
