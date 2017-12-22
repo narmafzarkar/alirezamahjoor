@@ -98,7 +98,7 @@ foreach($news as $news_item){
       <span>1395/6/28</span>
     </div>
     <div class="more-btn">
-      <a href="tip-singel.php">ادامه مطلب</a>
+      <a href="tip-singel.php?id=<?php echo $news_item['id']; ?>">ادامه مطلب</a>
     </div>
   </div>
   </div>

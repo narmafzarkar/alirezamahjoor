@@ -3,7 +3,7 @@
   <!-- Title Category -->
   <div class="title-category">
   <span>دسته : </span>
-  <span class="categoryname">تقویم رو میزی</span>
+  <span class="categoryname">لیست اخبار</span>
   </div>
   <div class="Line first"></div>
 
@@ -12,14 +12,12 @@
   <aside class="right-category">
       <div class="list-category list-tip">
   <ul>
-      <li>
-      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
-      <path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
-		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/>
+      <?php
+      $cat_query=mysqli_query($connect,"SELECT id,title FROM t_category WHERE parent_id=0");
+      $cat=mysqli_fetch_all($cat_query,MYSQLI_ASSOC);
+      foreach($cat as $item){
+      ?>
 
-        </svg>
-      <a href="tips.php">تقویم رومیزی اروپایی</a></li>
       <li data-has-submenu="1">
       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
@@ -27,37 +25,19 @@
 		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/>
 
         </svg>
-      <a href="tips.php">تقویم گرافیکی</a>
+
+      <a href="tips.php"><?php echo $item['title']; ?></a>
       <ul class="sub-menu">
-        <li><a href="tips.php">تقویم گرافیکی 1</a></li>
-        <li><a href="tips.php">تقویم گرافیکی 2</a></li>
-        <li><a href="tips.php">تقویم گرافیکی 3</a></li>
+<?php
+$cat_child_query=mysqli_query($connect,"SELECT title FROM t_category WHERE parent_id='$item[id]'");
+$cat_child=mysqli_fetch_all($cat_child_query,MYSQLI_ASSOC);
+foreach($cat_child as $item2){
+?>
+        <li><a href="tips.php"><?php echo $item2['title']; ?></a></li>
+<?php  } ?>
       </ul>
     </li>
-      <li>
-      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
-      <path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
-		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/>
-
-        </svg>
-      <a href="tips.php">سررسید وزیری</a></li>
-      <li>
-      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
-      <path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
-		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/>
-
-        </svg>
-      <a href="tips.php">تقویم مدیران</a></li>
-      <li>
-      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
-      <path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
-		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/>
-
-    </svg>
-      <a href="tips.php">تقویم جیبی</a></li>
+<?php } ?>
   </ul>
   </div>
 
@@ -71,10 +51,20 @@
   <img src="../asset/img/slide-2.jpg" alt="tip">
   </div>
   <div class="tip-text clearfix">
-    <p>
-    لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند تا صرفا به مشتری یا صاحب کار خود نشان دهند که صفحه طراحی یا صفحه بندی شده بعد از اینکه متن در آن قرار گیرد چگونه به نظر می‌رسد و قلم‌ها و اندازه‌بندی‌ها چگونه در نظر گرفته شده‌است. از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به متن می‌باشد آنها با استفاده از محتویات ساختگی، صفحه گرافیکی خود را صفحه‌آرایی می‌کنند تا مرحله طراحی و صفحه‌بندی را به پایان برند.
+      <?php
+      $news_query=mysqli_query($connect,"SELECT id,title, summary, text FROM
+t_news WHERE id='$_REQUEST[id]'");
+      $news=mysqli_fetch_assoc($news_query);
 
-    </p>
+      ?>
+    <p>
+<h4><?php echo $news['title'];?>      </h4>
+      <?php echo $news['summary'];?><hr>
+      <br><br>
+      <?php echo $news['text'];?>
+
+
+      </p>
   </div>
   <div class="tip-elements clearfix">
     <div class="visitors">

@@ -108,7 +108,7 @@ WHERE t_news.id='$id'");
                                 <div class="col-md-10 col-md-offset-2">
                                     <?php if(@$_REQUEST['id'])
                                     {?>
-                                    <button type="submit" class="btn btn-labeled bg-orange-active" name="edit"> <i class="fa fa-send"></i> ویرایش</button>
+                                    <button type="edit" class="btn btn-labeled bg-orange-active" name="edit"> <i class="fa fa-send"></i> ویرایش</button>
                                     <?php } else{ ?>
 
                                     <button type="submit" class="btn btn-labeled bg-orange-active" name="submit"> <i class="fa fa-send"></i> ثبت</button>
@@ -125,10 +125,22 @@ WHERE t_news.id='$id'");
                             $cat_id=@$_POST['category'];
                             $user_id=@$_POST['author'];
                              if(isset($_POST['submit']))
-                             { $insert_query=mysqli_query($connect,"INSERT INTO t_news(title,summary,text,id_cat,user_id)
+                             { $insert_query=mysqli_query($connect,"
+INSERT INTO t_news(title,summary,text,id_cat,user_id)
 VALUES('$title','$summary','$text','$cat_id','$user_id')");
 echo "<div align='center'>خبر با موفقیت ثبت شد</div>";
                              }
+                            if(isset($_POST['edit']))
+                            {
+                      $insert_query=mysqli_query($connect,"
+                                UPDATE t_news
+SET title = '$title', summary = '$summary', text='$text', id_cat='$cat_id', user_id='$user_id'
+WHERE id='$_REQUEST[id]'");
+                           echo "<div align='center'>خبر با موفقیت ویرایش شد</div>";
+
+
+
+                            }
                             ?>
                         </form>
                     </div>

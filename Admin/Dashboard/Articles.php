@@ -120,17 +120,28 @@ echo $cat['title'];
                                                
                                             </td>
                                             <th>
-                                                <a class="btn btn-info btn-sm glyphicon glyphicon-zoom-in" href="../../pages/tip-singel.php"></a>
+                                                <a class="btn btn-info btn-sm glyphicon glyphicon-zoom-in" href="../../pages/tip-singel.php?id=<?php echo $item['id'] ?>"></a>
                                             </th>
                                             <th>
                                                 <a class="btn btn-info btn-sm glyphicon glyphicon-edit" href="news-page.php?id=<?php echo $item['id'] ?>"></a>
                                             </th>
-                                            <th>
-                                                <a class="btn btn-danger btn-sm" href="@Url.Action(MVC.CpAdmin.News.Delete(item.Id))">×</a>
+                                            <th><form action="#" method="post">
+                                                <a class="btn btn-danger btn-sm"  href="?delid=<?php echo $item['id'] ?>">×</a>
+                                                </form>
                                             </th>
                                         </tr>
 
 <?php } ?>
+<?php
+
+if(@$_REQUEST['delid'])
+{
+   $del_query=mysqli_query($connect,"UPDATE t_news SET `delete`=1 WHERE id='$_REQUEST[delid]'");
+
+}
+
+
+?>
 
                                     </tbody>
                                 </table>
